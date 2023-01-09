@@ -8,5 +8,28 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-	plugins: [`gatsby-plugin-styled-components`],
+	siteMetadata: {
+		title: "Gatsby Starter",
+		description: "Nice and clean recipes site",
+		author: "@docCamarco",
+		person: { name: "Doc", age: 19 },
+		simpleData: ["item 1", "item 2"],
+		complexData: [
+			{ name: "Doc", age: 19 },
+			{ family: "Camarco", state: "colorado" },
+		],
+	},
+	plugins: [
+		`gatsby-plugin-styled-components`,
+		`gatsby-plugin-image`,
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `images`,
+				path: `${__dirname}/src/assets/images`,
+			},
+		},
+	],
 };
