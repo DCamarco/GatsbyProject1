@@ -13,9 +13,9 @@ require("dotenv").config({
 
 module.exports = {
 	siteMetadata: {
-		title: "Gatsby Starter",
+		title: "Simply Recipes",
 		description: "Nice and clean recipes site",
-		author: "@docCamarco",
+		author: "@DocCamarco",
 		person: { name: "Doc", age: 19 },
 		simpleData: ["item 1", "item 2"],
 		complexData: [
@@ -41,6 +41,23 @@ module.exports = {
 				spaceId: process.env.CONTENTFUL_SPACE_ID,
 				// Learn about environment variables: https://gatsby.dev/env-vars
 				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-webfonts`,
+			options: {
+				fonts: {
+					google: [
+						{
+							family: "Montserrat",
+							variants: ["400"],
+						},
+						{
+							family: "Inconsolata",
+							variants: ["400", "500", "600", "700"],
+						},
+					],
+				},
 			},
 		},
 	],

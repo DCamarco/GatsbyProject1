@@ -12,7 +12,7 @@
 	--primary-50: #d8d6ff;
 	--primary-100: #c1beff;
 	--primary-200: #aaa5ff;
-	--primary-300: #938dff;
+	--primary-300: #05041e;
 	--primary-400: #7b74ff;
 	/* main */
 	--primary-500: #645cff;
@@ -257,9 +257,9 @@ button.block {
 	max-width: var(--max-width);
 	margin: 0 auto;
 }
-.page {
+/* .page {
 	min-height: calc(100vh - (6rem + 4rem));
-}
+} */
 
 .title {
 	text-align: center;
@@ -497,6 +497,7 @@ form > *:last-child {
 	padding-bottom: 3rem;
 }
 .about-img {
+	display: inline-flex;
 	border-radius: var(--borderRadius);
 	height: 500px;
 }
@@ -505,7 +506,6 @@ form > *:last-child {
 	.about-page {
 		grid-template-columns: 1fr 1fr;
 		align-items: center;
-		height: 400px;
 	}
 	.about-img {
 		height: 100%;

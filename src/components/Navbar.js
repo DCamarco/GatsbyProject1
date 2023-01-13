@@ -18,6 +18,9 @@ const Navbar = () => {
 					</button>
 				</div>
 				<div className={show ? "nav-links show-links" : "nav-links"}>
+					<Link to='/' className='nav-link'>
+						Home
+					</Link>
 					<Link
 						to='/recipes'
 						className='nav-link'

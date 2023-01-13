@@ -1,7 +1,11 @@
 import React from "react";
 import Layout from "../components/Layout";
+import { graphql } from "gatsby";
+import RecipesList from "../components/RecipesList";
+import { SEO } from "../components/SEO";
 
-export default function Contact() {
+const Contact = ({ data }) => {
+	const recipes = data.allContentfulRecipe.nodes;
 	return (
 		<Layout>
 			<main className='page'>
@@ -19,7 +23,11 @@ export default function Contact() {
 						</p>
 					</article>
 					<article>
-						<form className='form contact-form'>
+						<form
+							className='form contact-form'
+							action='https://formspree.io/f/xnqyqede'
+							method='POST'
+						>
 							<div className='form-row'>
 								<label htmlFor='name'>Your Name</label>
 								<input type='text' name='name' id='name' />
@@ -38,7 +46,35 @@ export default function Contact() {
 						</form>
 					</article>
 				</section>
+				<section className='featured-recipes'>
+					<h5>Look at this Awesomesource!</h5>
+					<RecipesList recipes={recipes} />
+				</section>
 			</main>
 		</Layout>
 	);
-}
+};
+export const query = graphql`
+	{
+		allContentfulRecipe(
+			sort: { title: ASC }
+			filter: { featured: { eq: true } }
+		) {
+			nodes {
+				id
+				title
+				cookTime
+				prepTime
+				image {
+					gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+				}
+			}
+		}
+	}
+`;
+
+export const Head = () => (
+	<SEO title='Contact Us' description='Fill out our form below' />
+);
+
+export default Contact;
