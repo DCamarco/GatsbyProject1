@@ -1,6 +1,6 @@
 import React from "react";
 import Gallery from "../examples/Gallery";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 const Testing = ({ data }) => {
 	return (
